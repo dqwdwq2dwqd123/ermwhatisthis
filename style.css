@@ -1,0 +1,99 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Container */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffeff5;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  z-index: 1;
+}
+
+h1 {
+  color: #ff69b4;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+/* Heart Animation */
+.heart {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(145deg, #ff6b9b, #ff8fc1);
+  clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 85%, 20% 100%, 0% 35%);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  animation: floatUp 3s ease-out forwards;
+  opacity: 0;
+  transform: rotate(0deg);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: scale(0.8) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2) translateY(-150px) rotate(15deg);
+  }
+  100% {
+    transform: scale(1) translateY(-300px) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+/* Tooltip for the message */
+.tooltip {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: rgba(255, 105, 180, 0.8);
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  opacity: 0;
+  animation: fadeIn 3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .subtitle {
+    font-size: 1em;
+  }
+}
